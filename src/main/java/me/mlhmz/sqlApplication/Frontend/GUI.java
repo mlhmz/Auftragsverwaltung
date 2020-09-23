@@ -1,10 +1,10 @@
-package me.mlhmz.sqlApplication;
+package me.mlhmz.sqlApplication.Frontend;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import me.mlhmz.sqlApplication.Database.*;
+import me.mlhmz.sqlApplication.Database;
 
 public class GUI {
     private JButton kundenverwaltungButton;

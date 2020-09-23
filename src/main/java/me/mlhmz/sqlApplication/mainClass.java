@@ -1,5 +1,6 @@
 package me.mlhmz.sqlApplication;
 
+import me.mlhmz.sqlApplication.Frontend.GUI;
 import me.mlhmz.sqlApplication.sqlBackend.*;
 
 public class mainClass {

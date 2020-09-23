@@ -1,4 +1,6 @@
-package me.mlhmz.sqlApplication;
+package me.mlhmz.sqlApplication.Frontend;
+
+import me.mlhmz.sqlApplication.Database;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
