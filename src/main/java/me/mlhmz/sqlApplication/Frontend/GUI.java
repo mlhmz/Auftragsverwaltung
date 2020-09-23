@@ -25,6 +25,10 @@ public class GUI {
             comboBox1.addItem(Database.departmentList.get(i).getAbteilungsName());
         }
 
+        for (int i = 0; Database.productList.size() > i; i++) {
+            comboBox2.addItem(Database.productList.get(i).getProduktname());
+        }
+
         for (int i = 0; Database.userList.size() > i; i++) {
             comboBox3.addItem(Database.userList.get(i).getFirmenname());
         }
