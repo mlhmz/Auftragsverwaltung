@@ -6,12 +6,14 @@ public class Users {
     public String firmenname = "";
     public String adresse = "";
     public String telefonnummer = "";
+    public String firmenemail = "";
 
-    public Users(int id, String firmenname, String adresse, String telefonnummer) {
+    public Users(int id, String firmenname, String adresse, String telefonnummer, String firmenemail) {
         this.id = id;
         this.firmenname = firmenname;
         this.adresse = adresse;
         this.telefonnummer = telefonnummer;
+        this.firmenemail = firmenemail;
     }
 
     public int getId() {
@@ -46,6 +48,14 @@ public class Users {
         this.telefonnummer = telefonnummer;
     }
 
+    public String getFirmenemail() {
+        return firmenemail;
+    }
+
+    public void setFirmenemail(String firmenemail) {
+        this.firmenemail = firmenemail;
+    }
+
     @Override
     public String toString() {
         return "Users{" +
@@ -53,6 +63,7 @@ public class Users {
                 ", firmenname='" + firmenname + '\'' +
                 ", adresse='" + adresse + '\'' +
                 ", telefonnummer='" + telefonnummer + '\'' +
+                ", firmenemail='" + firmenemail + '\'' +
                 '}';
     }
 }

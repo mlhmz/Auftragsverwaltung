@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class userManagment {
-    private JButton createUser;
+    private JButton createUserBtn;
     private JButton manageUser;
     private JPanel panel;
 
@@ -14,6 +14,12 @@ public class userManagment {
             @Override
             public void actionPerformed(ActionEvent e) {
                 manageUsers.start();
+            }
+        });
+        createUserBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createUser.start();
             }
         });
     }

@@ -5,9 +5,11 @@ import me.mlhmz.sqlApplication.sqlBackend.*;
 
 public class mainClass {
     public static void main(String[] args) {
-        getSqlUsers sqlUsers = new getSqlUsers();
+        testDatabase testDB = new testDatabase();
+        sqlUsers sqlUsers = new sqlUsers();
         getSqlDepartment sqlDepartment = new getSqlDepartment();
         getSqlProducts sqlProducts = new getSqlProducts();
+        testDB.connect();
         sqlUsers.connectSQL();
         sqlDepartment.connectSQL();
         sqlProducts.connectSQL();

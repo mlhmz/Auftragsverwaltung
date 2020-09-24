@@ -23,14 +23,28 @@ public class GUI {
 
         for (int i = 0; Database.departmentList.size() > i; i++) {
             comboBox1.addItem(Database.departmentList.get(i).getAbteilungsName());
+
         }
+
+        if (Database.Debug) {
+            System.out.println("[Debug] Full ComboBox1 Size is:" + comboBox1.getItemCount());
+        }
+
 
         for (int i = 0; Database.productList.size() > i; i++) {
             comboBox2.addItem(Database.productList.get(i).getProduktname());
         }
 
+        if (Database.Debug) {
+            System.out.println("[Debug] Full ComboBox2 Size is:" + comboBox2.getItemCount());
+        }
+
         for (int i = 0; Database.userList.size() > i; i++) {
             comboBox3.addItem(Database.userList.get(i).getFirmenname());
+        }
+
+        if (Database.Debug) {
+            System.out.println("[Debug] Full ComboBox3 Size is:" + comboBox3.getItemCount());
         }
 
 
