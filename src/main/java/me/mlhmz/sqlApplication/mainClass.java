@@ -9,12 +9,17 @@ public class mainClass {
         sqlUsers sqlUsers = new sqlUsers();
         getSqlDepartment sqlDepartment = new getSqlDepartment();
         getSqlProducts sqlProducts = new getSqlProducts();
+
+        // Tests the Database and sends a Message if there's no connection established
         testDB.connect();
+
+        // Connects to the User Database
         sqlUsers.connectSQL();
         sqlDepartment.connectSQL();
         sqlProducts.connectSQL();
         GUI gui = new GUI();
         gui.start();
+
 
 
     }
