@@ -29,7 +29,7 @@ public class getSqlProducts {
             // Get Result with Statement
             ResultSet rs = stmt.executeQuery(query);
 
-            // Save Amount of Columns in a int
+            // Save Amount of Columns in an int
             int columns = rs.getMetaData().getColumnCount();
 
 

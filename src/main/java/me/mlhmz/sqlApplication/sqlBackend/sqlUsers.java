@@ -77,6 +77,20 @@ public class sqlUsers {
         }
 
     }
+
+    public static void delete(int id) {
+        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
+        String user = "root";
+        String password = "";
+        try (Connection con = DriverManager.getConnection(url,user,password)) {
+            String query = "DELETE from `benutzer` where id=" + id;
+            Statement s = con.createStatement();
+            s.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("[MySQL] Ein Fehler ist aufgetreten beim löschen von Auftragsdaten.");
+        }
+    }
 }
 
 

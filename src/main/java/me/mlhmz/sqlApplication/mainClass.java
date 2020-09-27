@@ -14,6 +14,7 @@ public class mainClass {
         testDB.connect();
 
         // Connects to the User Database
+        sqlOrders.connect();
         sqlUsers.connectSQL();
         sqlDepartment.connectSQL();
         sqlProducts.connectSQL();

@@ -1,6 +1,8 @@
 package me.mlhmz.sqlApplication.Frontend;
 
 import me.mlhmz.sqlApplication.Database;
+import me.mlhmz.sqlApplication.sqlBackend.sqlOrders;
+import me.mlhmz.sqlApplication.sqlBackend.sqlUsers;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,14 +17,26 @@ public class manageUsers {
 
     public manageUsers() {
         Database database = new Database();
-        comboBox1.addItem("-");
+        comboBox1.setRenderer(new ListRenderer());
         for (int i = 0; Database.userList.size() > i; i++) {
-            comboBox1.addItem(database.userList.get(i).getFirmenname());
+            int id = Database.userList.get(i).getId();
+            String name = Database.userList.get(i).getFirmenname();
+            Object[] item = new Object[] {id, name};
+            comboBox1.addItem(item);
         }
+
         changeInformation.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+            }
+        });
+        deleteCustomer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Object[] export = (Object[]) comboBox1.getSelectedItem();
+
+                sqlUsers.delete((int) export[0]);
             }
         });
     }

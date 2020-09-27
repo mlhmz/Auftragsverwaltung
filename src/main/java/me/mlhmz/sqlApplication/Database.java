@@ -8,5 +8,6 @@ public class Database {
     public static ArrayList<Users> userList = new ArrayList<Users>();
     public static ArrayList<Department> departmentList = new ArrayList<Department>();
     public static ArrayList<Products> productList = new ArrayList<Products>();
+    public static ArrayList<Orders> orderList = new ArrayList<Orders>();
     public static final boolean Debug = false;
 }

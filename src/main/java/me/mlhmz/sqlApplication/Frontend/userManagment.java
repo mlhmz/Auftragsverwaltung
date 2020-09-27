@@ -8,6 +8,10 @@ public class userManagment {
     private JButton createUserBtn;
     private JButton manageUser;
     private JPanel panel;
+    private JButton abteilungErstellenButton;
+    private JButton abteilungVerwaltenButton;
+    private JButton produktErstellenButton;
+    private JButton produktVerwaltenButton;
 
     public userManagment() {
         manageUser.addActionListener(new ActionListener() {
