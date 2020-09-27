@@ -7,8 +7,8 @@ public class mainClass {
     public static void main(String[] args) {
         testDatabase testDB = new testDatabase();
         sqlUsers sqlUsers = new sqlUsers();
-        getSqlDepartment sqlDepartment = new getSqlDepartment();
-        getSqlProducts sqlProducts = new getSqlProducts();
+        sqlDepartment sqlDepartment = new sqlDepartment();
+        sqlProducts sqlProducts = new sqlProducts();
 
         // Tests the Database and sends a Message if there's no connection established
         testDB.connect();

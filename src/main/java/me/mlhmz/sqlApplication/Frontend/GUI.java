@@ -2,6 +2,7 @@ package me.mlhmz.sqlApplication.Frontend;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
@@ -9,7 +10,10 @@ import java.time.format.DateTimeFormatter;
 
 import me.mlhmz.sqlApplication.Database;
 import me.mlhmz.sqlApplication.objects.Orders;
+import me.mlhmz.sqlApplication.sqlBackend.sqlDepartment;
+import me.mlhmz.sqlApplication.sqlBackend.sqlProducts;
 import me.mlhmz.sqlApplication.sqlBackend.sqlOrders;
+import me.mlhmz.sqlApplication.sqlBackend.sqlUsers;
 
 public class GUI {
     private JButton kundenverwaltungButton;
@@ -42,6 +46,13 @@ public class GUI {
 
         table1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table1.setModel(model);
+        int tablesizes[] = {100,150,130,145,200,65,180,180,180,180,180};
+        for (int i = 1; i < tablesizes.length; i++) {
+            TableColumn column = table1.getColumnModel().getColumn(i);
+            column.setMinWidth(tablesizes[i]);
+            column.setMaxWidth(tablesizes[i]);
+            column.setPreferredWidth(tablesizes[i]);
+        }
 
 
         /* The Items of the ComboBoxes are Objects,
@@ -110,25 +121,29 @@ public class GUI {
                 int menge = (int) spinner1.getValue();
 
                 sqlOrders.insert((int) export2[0], (int) export3[0], (int) export1[0], zeit, deadline, menge);
-                aktualisierenButton.getAction();
+                aktualisierenButton.doClick();
             }
         });
 
         kundenverwaltungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userManagment.start();
+                dataManagment.start();
             }
         });
         löschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 sqlOrders.delete(Integer.parseInt((String) table1.getValueAt(table1.getSelectedRow(), 0)));
+                aktualisierenButton.doClick();
             }
         });
         aktualisierenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                // Table
+
                 Database.orderList.clear();
                 sqlOrders.connect();
                 DefaultTableModel model1 = new DefaultTableModel();
@@ -147,6 +162,53 @@ public class GUI {
 
                 table1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
                 table1.setModel(model1);
+
+                // comboBox
+                comboBox1.removeAllItems();
+                comboBox2.removeAllItems();
+                comboBox3.removeAllItems();
+
+                Database.userList.clear();
+                Database.departmentList.clear();
+                Database.productList.clear();
+
+                sqlUsers sqlUsers = new sqlUsers();
+                sqlProducts sqlProducts = new sqlProducts();
+                sqlDepartment sqlDepartment = new sqlDepartment();
+                sqlUsers.connectSQL();
+                sqlProducts.connectSQL();
+                sqlDepartment.connectSQL();
+
+                for (int i = 0; Database.departmentList.size() > i; i++) {
+                    int id = Database.departmentList.get(i).getId();
+                    String name = Database.departmentList.get(i).getAbteilungsName();
+                    Object[] item = new Object[] {id, name};
+                    comboBox1.addItem(item);
+
+
+                }
+
+                for (int i = 0; Database.productList.size() > i; i++) {
+                    int id = Database.productList.get(i).getId();
+                    String name = Database.productList.get(i).getProduktname();
+                    Object[] item = new Object[] {id, name};
+                    comboBox2.addItem(item);
+                }
+
+                for (int i = 0; Database.userList.size() > i; i++) {
+                    int id = Database.userList.get(i).getId();
+                    String name = Database.userList.get(i).getFirmenname();
+                    Object[] item = new Object[] {id, name};
+                    comboBox3.addItem(item);
+                }
+
+                int tablesizes[] = {100,150,130,145,200,65,180,180,180,180,180};
+                for (int i = 1; i < tablesizes.length; i++) {
+                    TableColumn column = table1.getColumnModel().getColumn(i);
+                    column.setMinWidth(tablesizes[i]);
+                    column.setMaxWidth(tablesizes[i]);
+                    column.setPreferredWidth(tablesizes[i]);
+                }
 
             }
         });

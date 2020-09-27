@@ -1,13 +1,13 @@
 package me.mlhmz.sqlApplication.sqlBackend;
 
 import me.mlhmz.sqlApplication.Database;
-import me.mlhmz.sqlApplication.objects.Users;
+import me.mlhmz.sqlApplication.objects.Department;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class sqlUsers {
-    public ArrayList<Users> connectSQL() {
+public class sqlDepartment {
+    public ArrayList<Department> connectSQL() {
 
         String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
         String user = "root";
@@ -18,10 +18,10 @@ public class sqlUsers {
 
         // Connect to MySQL
         try (Connection con = DriverManager.getConnection(url, user, password)) {
-            System.out.println("[MySQL] Es wurde eine Verbindung mit der SQL Datenbank hergestellt für die Benutzer-Tabelle!");
+            System.out.println("[MySQL] Es wurde eine Verbindung mit der SQL Datenbank hergestellt für die Abteilungs-Tabelle!");
 
             // Get Data from Query
-            String query = "SELECT * FROM benutzer ORDER BY id ASC";
+            String query = "SELECT * FROM abteilungen ORDER BY abteilungsid ASC";
 
             // Create new Statement
             Statement stmt = con.createStatement();
@@ -36,8 +36,8 @@ public class sqlUsers {
 
             // Store all Userdata's into an ArrayList
             while (rs.next()) {
-                Users users = new Users(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
-                database.userList.add(users);
+                Department department = new Department(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                database.departmentList.add(department);
             }
 
 
@@ -47,14 +47,14 @@ public class sqlUsers {
         // If theres an Error, catch and report it.
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("[MySQL] Ein Datenbank Technischer Fehler ist aufgetreten bei der Benutzertabelle.");
+            System.out.println("[MySQL] Ein Datenbank Technischer Fehler ist aufgetreten bei der Abteilungs-Tabelle.");
         }
 
         // Return the Userdata to the List
-        return Database.userList;
+        return Database.departmentList;
     }
 
-    public static void insertSQL(String firmenname, String firmenadresse, String firmennummer, String firmenemail) {
+    public static void insertSQL(String abteilungsname, String abteilungstelefonnummer, String abteilungsleiter) {
         String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
         String user = "root";
         String password = "";
@@ -64,7 +64,7 @@ public class sqlUsers {
             Statement stmt = con.createStatement();
 
             // Inserts the Data into the SQL Table with a SQL Statement
-            stmt.executeUpdate("INSERT INTO `benutzer` (`id`, `firmenname`, `adresse`, `telefonnummer`, `firmenemail`) VALUES (NULL, '" + firmenname + "', '" + firmenadresse + "', '" + firmennummer + "', '" + firmenemail + "')");
+            stmt.executeUpdate("INSERT INTO `abteilungen` (`abteilungsid`, `abteilungsname`, `abteilungsnummer`, `abteilungsleiter`) VALUES (NULL, '" + abteilungsname + "', '" + abteilungstelefonnummer + "', '" + abteilungsleiter + "')");
 
             // Debug Message so the User know the Insert was successful.
             System.out.println("[MySQL] Das Einfügen der Daten war soweit erfolgreich!");
@@ -84,7 +84,7 @@ public class sqlUsers {
         String password = "";
 
         try (Connection con = DriverManager.getConnection(url,user,password)) {
-            String update = "UPDATE `benutzer` SET " + updatename + "='" + updatewert + "' WHERE id=" + id;
+            String update = "UPDATE `abteilungen` SET " + updatename + "='" + updatewert + "' WHERE abteilungsid=" + id;
 
             Statement stmt = con.createStatement();
 
@@ -102,7 +102,7 @@ public class sqlUsers {
         String user = "root";
         String password = "";
         try (Connection con = DriverManager.getConnection(url,user,password)) {
-            String query = "DELETE from `benutzer` where id=" + id;
+            String query = "DELETE from `abteilungen` where abteilungsid=" + id;
             Statement s = con.createStatement();
             s.executeUpdate(query);
         } catch (SQLException e) {

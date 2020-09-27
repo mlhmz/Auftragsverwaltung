@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="me.mlhmz.sqlApplication.Frontend.manageUsers">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="me.mlhmz.sqlApplication.Frontend.manageProducts">
   <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -10,34 +10,34 @@
       <size top="5" left="5" bottom="5" right="5"/>
     </border>
     <children>
-      <component id="df5b8" class="javax.swing.JLabel">
+      <component id="c3181" class="javax.swing.JLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Wählen Sie einen Kunden aus"/>
+          <text value="Wählen Sie ein Produkt aus"/>
         </properties>
       </component>
-      <component id="dd39a" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="6a527" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
-      <component id="69961" class="javax.swing.JButton" binding="changeInformationBtn">
+      <component id="36fb0" class="javax.swing.JButton" binding="löschenButton" default-binding="true">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Informationen ändern"/>
+          <text value="Kundeninfos löschen"/>
         </properties>
       </component>
-      <component id="11cec" class="javax.swing.JButton" binding="deleteCustomer">
+      <component id="97274" class="javax.swing.JButton" binding="informationenÄndernButton" default-binding="true">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Kundeninfos löschen"/>
+          <text value="Informationen ändern"/>
         </properties>
       </component>
     </children>

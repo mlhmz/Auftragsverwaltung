@@ -1,7 +1,6 @@
 package me.mlhmz.sqlApplication.Frontend;
 
 import me.mlhmz.sqlApplication.Database;
-import me.mlhmz.sqlApplication.sqlBackend.sqlOrders;
 import me.mlhmz.sqlApplication.sqlBackend.sqlUsers;
 
 import javax.swing.*;
@@ -10,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class manageUsers {
     private JComboBox comboBox1;
-    private JButton changeInformation;
+    private JButton changeInformationBtn;
     private JButton deleteCustomer;
     private JPanel panel;
 
@@ -25,10 +24,13 @@ public class manageUsers {
             comboBox1.addItem(item);
         }
 
-        changeInformation.addActionListener(new ActionListener() {
+        changeInformationBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Object[] export = (Object[]) comboBox1.getSelectedItem();
 
+                changeUserInformation.setId((int) export[0]);
+                changeUserInformation.start();
             }
         });
         deleteCustomer.addActionListener(new ActionListener() {
