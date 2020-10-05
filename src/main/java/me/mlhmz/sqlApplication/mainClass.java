@@ -10,6 +10,9 @@ public class mainClass {
         sqlDepartment sqlDepartment = new sqlDepartment();
         sqlProducts sqlProducts = new sqlProducts();
 
+        // Gets the Data from CSV (The data.csv is .gitignored)
+        sqlCredentials.get();
+
         // Tests the Database and sends a Message if there's no connection established
         testDB.connect();
 
@@ -20,6 +23,7 @@ public class mainClass {
         sqlProducts.connectSQL();
         GUI gui = new GUI();
         gui.start();
+
 
 
 

@@ -55,9 +55,9 @@ public class sqlProducts {
     }
 
     public static void insertSQL(String produktname) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             // Creates a new Statement

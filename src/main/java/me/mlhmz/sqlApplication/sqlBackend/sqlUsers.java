@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class sqlUsers {
     public ArrayList<Users> connectSQL() {
 
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         // Initialize Database
         Database database = new Database();

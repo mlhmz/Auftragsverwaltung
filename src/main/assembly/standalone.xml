@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<assembly>
+    <id>sqlApplicationMvn</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+</assembly>

@@ -79,9 +79,9 @@ public class sqlDepartment {
     }
 
     public static void update(int id, String updatename, String updatewert) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             String update = "UPDATE `abteilungen` SET " + updatename + "='" + updatewert + "' WHERE abteilungsid=" + id;
