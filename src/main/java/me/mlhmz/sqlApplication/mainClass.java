@@ -13,6 +13,10 @@ public class mainClass {
         // Gets the Data from CSV (The data.csv is .gitignored)
         sqlCredentials.get();
 
+        // If the Tables doesn't exist in the Database,
+        // the Application will create it.
+        tableCreator.start();
+
         // Tests the Database and sends a Message if there's no connection established
         testDB.connect();
 
@@ -23,9 +27,5 @@ public class mainClass {
         sqlProducts.connectSQL();
         GUI gui = new GUI();
         gui.start();
-
-
-
-
     }
 }

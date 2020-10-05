@@ -16,12 +16,15 @@ public class manageDepartment {
 
     public manageDepartment() {
         Database database = new Database();
-        comboBox1.setRenderer(new ListRenderer());
         for (int i = 0; Database.departmentList.size() > i; i++) {
-            int id = Database.departmentList.get(i).getId();
-            String name = Database.departmentList.get(i).getAbteilungsName();
-            Object[] item = new Object[] {id, name};
-            comboBox1.addItem(item);
+            if (!Database.departmentList.isEmpty()) {
+                comboBox1.setRenderer(new ListRenderer());
+                int id = Database.departmentList.get(i).getId();
+                String name = Database.departmentList.get(i).getAbteilungsName();
+                Object[] item = new Object[] {id, name};
+                comboBox1.addItem(item);
+            }
+
         }
 
         deleteButton.addActionListener(new ActionListener() {

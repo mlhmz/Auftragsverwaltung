@@ -15,12 +15,15 @@ public class manageProducts {
 
     public manageProducts() {
         Database database = new Database();
-        comboBox1.setRenderer(new ListRenderer());
         for (int i = 0; Database.productList.size() > i; i++) {
-            int id = Database.productList.get(i).getId();
-            String name = Database.productList.get(i).getProduktname();
-            Object[] item = new Object[] {id, name};
-            comboBox1.addItem(item);
+            if (!Database.productList.isEmpty()) {
+                comboBox1.setRenderer(new ListRenderer());
+                int id = Database.productList.get(i).getId();
+                String name = Database.productList.get(i).getProduktname();
+                Object[] item = new Object[] {id, name};
+                comboBox1.addItem(item);
+            }
+
         }
 
         löschenButton.addActionListener(new ActionListener() {

@@ -55,9 +55,9 @@ public class sqlUsers {
     }
 
     public static void insertSQL(String firmenname, String firmenadresse, String firmennummer, String firmenemail) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             // Creates a new Statement
@@ -79,9 +79,9 @@ public class sqlUsers {
     }
 
     public static void update(int id, String updatename, String updatewert) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             String update = "UPDATE `benutzer` SET " + updatename + "='" + updatewert + "' WHERE id=" + id;
@@ -98,9 +98,9 @@ public class sqlUsers {
     }
 
     public static void delete(int id) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             String query = "DELETE from `benutzer` where id=" + id;
             Statement s = con.createStatement();

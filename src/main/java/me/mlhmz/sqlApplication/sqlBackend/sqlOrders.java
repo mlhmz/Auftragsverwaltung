@@ -91,9 +91,9 @@ public class sqlOrders {
     }
 
     public static void insert(int produktid, int kundenid, int abteilungsid, String auftragsdatum, String deadline, int menge) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             // Creates new Statements
@@ -114,9 +114,9 @@ public class sqlOrders {
     }
 
     public static void delete(int id) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             String query = "DELETE from `auftraege` where auftragsid=" + id;
             Statement s = con.createStatement();

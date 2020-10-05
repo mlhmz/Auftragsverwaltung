@@ -16,12 +16,15 @@ public class manageUsers {
 
     public manageUsers() {
         Database database = new Database();
-        comboBox1.setRenderer(new ListRenderer());
+
         for (int i = 0; Database.userList.size() > i; i++) {
-            int id = Database.userList.get(i).getId();
-            String name = Database.userList.get(i).getFirmenname();
-            Object[] item = new Object[] {id, name};
-            comboBox1.addItem(item);
+            if (!Database.userList.isEmpty()) {
+                comboBox1.setRenderer(new ListRenderer());
+                int id = Database.userList.get(i).getId();
+                String name = Database.userList.get(i).getFirmenname();
+                Object[] item = new Object[] {id, name};
+                comboBox1.addItem(item);
+            }
         }
 
         changeInformationBtn.addActionListener(new ActionListener() {

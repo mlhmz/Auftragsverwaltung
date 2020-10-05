@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class sqlDepartment {
     public ArrayList<Department> connectSQL() {
 
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         // Initialize Database
         Database database = new Database();
@@ -55,9 +55,9 @@ public class sqlDepartment {
     }
 
     public static void insertSQL(String abteilungsname, String abteilungstelefonnummer, String abteilungsleiter) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             // Creates a new Statement
@@ -98,9 +98,9 @@ public class sqlDepartment {
     }
 
     public static void delete(int id) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             String query = "DELETE from `abteilungen` where abteilungsid=" + id;
             Statement s = con.createStatement();

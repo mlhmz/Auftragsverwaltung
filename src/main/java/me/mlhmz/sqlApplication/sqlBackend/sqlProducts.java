@@ -9,9 +9,10 @@ import java.util.ArrayList;
 public class sqlProducts {
     public ArrayList<Products> connectSQL() {
 
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         // Initialize Database
         Database database = new Database();
@@ -80,9 +81,9 @@ public class sqlProducts {
 
 
     public static void update(int id, String updatename, String updatewert) {
-        String url = "jdbc:mysql://localhost:3306/auftragsverwaltung";
-        String user = "root";
-        String password = "";
+        String url = Database.credentialList.get(0).getUrl() + "/" + Database.credentialList.get(0).getDatabaseName();
+        String user = Database.credentialList.get(0).getUsername();
+        String password = Database.credentialList.get(0).getPassword();
 
         try (Connection con = DriverManager.getConnection(url,user,password)) {
             String update = "UPDATE `produkte` SET " + updatename + "='" + updatewert + "' WHERE id=" + id;
