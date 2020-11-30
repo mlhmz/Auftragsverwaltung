@@ -2,8 +2,8 @@
 Eine Applikation die Betrieben helfen soll.
 
 # Anforderungen
-Java
-Eine MySQL / mariadb Datenbank
+Java,
+Eine MySQL / mariadb Datenbank,
 JDBC Driver für MySQL / mariadb
 
 # Über die Anwendung
