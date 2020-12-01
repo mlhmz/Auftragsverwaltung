@@ -15,4 +15,4 @@ Nachdem er mindst. einen Nutzer eine Abteilung und ein Produkt erstellt hat, kan
 Da die Anwendung nicht direkt für einen Betrieb kompiliert ist, ist die Anwendung nur im Test-Modus verfügbar. Das heißt, dass
 der Benutzer bei jedem Start die Daten der Datenbank eingeben muss.
 
-# Bilder
+# Preview
